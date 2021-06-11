@@ -2,87 +2,91 @@ import { LightningElement,api,track,wire } from 'lwc';
 import getUserInfo from "@salesforce/apex/objectInfoController.getUserInfo";
 export default class Object360Wrapper extends LightningElement {
     @api object = "";
+    @api recordId = "02i090000011ihQAAQ";
     
+    @track metric1Value;
     @track metric2Value;
-
-
-
-    @track backgroundImage = "";
-    @track nameLabel = "";
-    @track userAvatar ="";
-    @track userType = "";
-    @track recordId = "";
-    @track metric1 = "";
-    @track metric1Icon = "";
-    @track metric1Measure = "";
-    @track metric1IconSize = "" ;
-    @track metric2 = "";
-    @track metric2Icon = "";
-    @track metric2Measure = "";
-    @track metric2IconSize = "" ;
-    @track metric3 = "";
-    @track metric3Icon = "";
-    @track metric3Measure = "";
-    @track metric3IconSize = "" ;
-    @track metric4 = "";
-    @track metric4Icon = "";
-    @track metric4Measure = "";
-    @track metric4IconSize = "" ;
-    @track metric5 = "";
-    @track metric5Icon = "";
-    @track metric5Measure = "";
-    @track metric5IconSize = "" ;
-    @track metric6 = "";
-    @track metric6Icon = "";
-    @track metric6Measure = "";
-    @track metric6IconSize = "" ;
-    @track isLoading = true;
-    @track userRecord = {};
-    @track myerror;
-    errormessage;
-
-
+    @track metric3Value;
+    @track metric4Value;
+    @track metric5Value;
+    @track metric6Value;
+  
+    @api backgroundImage = "";
+    @api nameLabel = "";
+    @api userAvatar ="";
+    @api userType = "";
+  
+    
+    @api metric1 = "";
+    @api metric1Icon = "";
+    @api metric1FieldName = "";
+    @api metric1IconSize = "" ;
+    
     @api metric2 = "";
     @api metric2Icon = "";
     @api metric2FieldName = "";
     @api metric2IconSize = "" ;
+    
+    @api metric3 = "";
+    @api metric3Icon = "";
+    @api metric3FieldName = "";
+    @api metric3IconSize = "" ;
+   
+    @api metric4 = "";
+    @api metric4Icon = "";
+    @api metric4FieldName = "";
+    @api metric4IconSize = "" ;
+    
+    @api metric5 = "";
+    @api metric5Icon = "";
+    @api metric5FieldName = "";
+    @api metric5IconSize = "" ;
+    
+    @api metric6 = "";
+    @api metric6Icon = "";
+    @api metric6FieldName = "";
+    @api metric6IconSize = "" ;
+
+    //@api isLoading = true;
+    @api userRecord = {};
+    @api myerror;
+    errormessage;
+
+
+
 
 get soqlFields(){
   let fieldString = 'Id';
 
-  if(this.field1Name !== undefined){
-    fieldString+= ',' + this.field1Name;
+  if(this.metric1FieldName !== undefined && this.metric1FieldName !== ""){
+    fieldString+= ',' + this.metric1FieldName;
   }
 
   if(this.metric2FieldName !== undefined && this.metric2FieldName !== ""){
     fieldString+= ',' + this.metric2FieldName;
   }
 
-  if(this.field3Name !== undefined){
-    fieldString+= ',' + this.field3Name;
+  if(this.metric3FieldName !== undefined){
+    fieldString+= ',' + this.metric3FieldName && this.metric3FieldName !== "";
   }
 
-  if(this.field4Name !== undefined){
-    fieldString+= ',' + this.field4Name;
+  if(this.metric4FieldName !== undefined){
+    fieldString+= ',' + this.metric4FieldName && this.metric4FieldName !== "";
   }
 
-  if(this.field5Name !== undefined){
-    fieldString+= ',' + this.field5Name;
+  if(this.metric5FieldName !== undefined){
+    fieldString+= ',' + this.metric5FieldName && this.metric5FieldName !== "";
   }
 
-  if(this.field6Name !== undefined){
-    fieldString+= ',' + this.field6Name;
+  if(this.metric6FieldName !== undefined){
+    fieldString+= ',' + this.metric6FieldName && this.metric6FieldName !== "";
   }
 
-  return fieldString; 'Id,Name,Dog__c'
+  return fieldString; 
 }
 
 //Field mapping based on design attribute selected
-get mileage(){
-    if(this.metric1Measure == "Mileage"){
-        return "Mileage__c";
-    }
-}
+
 get userName() {
     if (this.userType == "Creator") {
       return "CreatedBy.Name";
@@ -115,11 +119,14 @@ get userName() {
   @wire(getUserInfo, {
     objApiName: "$object",
     fields: "$soqlFields",
-    currentRecordId: "$recordId"
+    currentRecordId: "02i090000011ihQAAQ"
   })
+  
   wiredRecords(result) {
+    console.log("Test");
     this.errormessage = "";
     this.wiredRecordsResult = result;
+    
     if (result.error) {
       console.error(result.error);
       this.errormessage = result.error.body.message;
@@ -127,15 +134,33 @@ get userName() {
     } else if (result.data) {
 
 
+      if(this.metric1FieldName !== undefined){
+        this.metric1Value = record[this.metric1FieldName];
+      }
+      console.log(this.metric1Value);
+
       if(this.metric2FieldName !== undefined){
         this.metric2Value = record[this.metric2FieldName];
       }
+      console.log(this.metric2Value);
 
+      if(this.metric3FieldName !== undefined){
+        this.metric3Value = record[this.metric3FieldName];
+      }
+      if(this.metric4FieldName !== undefined){
+        this.metric4Value = record[this.metric4FieldName];
+      }
+      if(this.metric5FieldName !== undefined){
+        this.metric5Value = record[this.metric5FieldName];
+      }
+      if(this.metric6FieldName !== undefined){
+        this.metric6Value = record[this.metric6FieldName];
+      }
       this.userRecord.fullName = this.ref(result.data, this.userName);
-      //add if statement copy 71 
       this.userRecord.MediumPhotoUrl = this.ref(result.data, this.userImage);
       this.userRecord.SmallPhotoUrl = this.ref(result.data, this.userSmallImage);
     }
+    console.log("recordId:"+ this.currentRecordId);
   }
   //splits object from object name to name that we can reference
   ref(obj, str) {

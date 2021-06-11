@@ -14,33 +14,39 @@
     <targetConfigs>
         <targetConfig targets="lightning__HomePage, lightning__RecordPage">
             <property name="object" type="String" label="Object API Name" default="{!objectApiName}" />
-            <property name="field1Name" type="String"  label="Field Name" default=""></property>
-            <property name="field2Name" type="String" label="Record Id" description="Automatically binds the page's record id to the component variable, default value contextually obtains record Id from Lightning page, this can also be set explicitly" />
+            <property name="recordId" type="String" label="Record Id"  default="{!recordId}"/>
+            
             <property name="backgroundImage" type="String" label="Profile Card Background Photo" default="" />
             <property name="nameLabel" type="String" label="Label Underneath Name" default="" />
             <property name="userAvatar" type="String" label="User Profile Picture" default="" />
+            
             <property name="metric1" type="String" label="Metric 1 Name" default="" />
-            <property name="metric1Measure" type="String" label="Metric 1 Label Measure" default="" />
+            <property name="metric1FieldName" type="String" label="Metric 1 Label Measure" default="" />
             <property name="metric1Icon" type="String" label="Metric 1 Icon" default="" />
             <property name="metric1IconSize" type="String" label="Metric 1 Icon Size" default="" />
+            
             <property name="metric2" type="String" label="Metric 2 Name" default="" />
-            <property name="metric2Measure" type="String" label="Metric 2 Label Measure" default="" />
+            <property name="metric2FieldName" type="String" label="Metric 2 Label Measure" default="" />
             <property name="metric2Icon" type="String" label="Metric 2 Icon" default="" />
             <property name="metric2IconSize" type="String" label="Metric 2 Icon Size" default="" />
+           
             <property name="metric3" type="String" label="Metric 3 Name" default="" />
-            <property name="metric3Measure" type="String" label="Metric 3 Label Measure" default="" />
+            <property name="metric3FieldName" type="String" label="Metric 3 Label Measure" default="" />
             <property name="metric3Icon" type="String" label="Metric 3 Icon" default="" />
             <property name="metric3IconSize" type="String" label="Metric 3 Icon Size" default="" />
+           
             <property name="metric4" type="String" label="Metric 4 Name" default="" />
-            <property name="metric4Measure" type="String" label="Metric 4 Label Measure" default="" />
+            <property name="metric4FieldName" type="String" label="Metric 4 Label Measure" default="" />
             <property name="metric4Icon" type="String" label="Metric 4 Icon" default="" />
             <property name="metric4IconSize" type="String" label="Metric 4 Icon Size" default="" />
+           
             <property name="metric5" type="String" label="Metric 5 Name" default="" />
-            <property name="metric5Measure" type="String" label="Metric 5 Label Measure" default="" />
+            <property name="metric5FieldName" type="String" label="Metric 5 Label Measure" default="" />
             <property name="metric5Icon" type="String" label="Metric 5 Icon" default="" />
             <property name="metric5IconSize" type="String" label="Metric 5 Icon Size" default="" />
+            
             <property name="metric6" type="String" label="Metric 6 Name" default="" />
-            <property name="metric6Measure" type="String" label="Metric 6 Label Measure" default="" />
+            <property name="metric6FieldName" type="String" label="Metric 6 Label Measure" default="" />
             <property name="metric6Icon" type="String" label="Metric 6 Icon" default="" />
             <property name="metric6IconSize" type="String" label="Metric 6 Icon Size" default="" />
            
