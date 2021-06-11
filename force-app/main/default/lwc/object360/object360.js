@@ -2,21 +2,25 @@ import { LightningElement, api, wire,track } from 'lwc';
 import getUserInfo from "@salesforce/apex/objectInfoController.getUserInfo";
 
 export default class Object360 extends LightningElement {
-  @api object = "";
+  //@api object = "";
   @api backgroundImage = "";
   @api userAvatar ="";
   @api name="";
   @api nameLabel="";
-  @api userType = "";
-  @api recordId = "";
+  //@api userType = "";
+  //@api recordId = "";
   @api metric1 = "";
   @api metric1Icon = "";
   @api metric1Measure = "";
   @api metric1IconSize = "" ;
+
+
   @api metric2 = "";
   @api metric2Icon = "";
   @api metric2Measure = "";
   @api metric2IconSize = "" ;
+
+
   @api metric3 = "";
   @api metric3Icon = "";
   @api metric3Measure = "";
@@ -33,8 +37,9 @@ export default class Object360 extends LightningElement {
   @api metric6Icon = "";
   @api metric6Measure = "";
   @api metric6IconSize = "" ;
-  @track isLoading = true;
-  @track userRecord = {};
+  //@track isLoading = true;
+  //@track userRecord = {};
+
   @track myerror;
   errormessage;
   //Field mapping based on design attribute selected

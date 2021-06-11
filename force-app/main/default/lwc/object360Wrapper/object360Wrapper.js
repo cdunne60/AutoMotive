@@ -2,39 +2,80 @@ import { LightningElement,api,track,wire } from 'lwc';
 import getUserInfo from "@salesforce/apex/objectInfoController.getUserInfo";
 export default class Object360Wrapper extends LightningElement {
     @api object = "";
-    @api backgroundImage = "";
-    @api nameLabel = "";
-    @api userAvatar ="";
-    @api userType = "";
-    @api recordId = "";
-    @api metric1 = "";
-    @api metric1Icon = "";
-    @api metric1Measure = "";
-    @api metric1IconSize = "" ;
-    @api metric2 = "";
-    @api metric2Icon = "";
-    @api metric2Measure = "";
-    @api metric2IconSize = "" ;
-    @api metric3 = "";
-    @api metric3Icon = "";
-    @api metric3Measure = "";
-    @api metric3IconSize = "" ;
-    @api metric4 = "";
-    @api metric4Icon = "";
-    @api metric4Measure = "";
-    @api metric4IconSize = "" ;
-    @api metric5 = "";
-    @api metric5Icon = "";
-    @api metric5Measure = "";
-    @api metric5IconSize = "" ;
-    @api metric6 = "";
-    @api metric6Icon = "";
-    @api metric6Measure = "";
-    @api metric6IconSize = "" ;
+    
+    @track metric2Value;
+
+
+
+    @track backgroundImage = "";
+    @track nameLabel = "";
+    @track userAvatar ="";
+    @track userType = "";
+    @track recordId = "";
+    @track metric1 = "";
+    @track metric1Icon = "";
+    @track metric1Measure = "";
+    @track metric1IconSize = "" ;
+    @track metric2 = "";
+    @track metric2Icon = "";
+    @track metric2Measure = "";
+    @track metric2IconSize = "" ;
+    @track metric3 = "";
+    @track metric3Icon = "";
+    @track metric3Measure = "";
+    @track metric3IconSize = "" ;
+    @track metric4 = "";
+    @track metric4Icon = "";
+    @track metric4Measure = "";
+    @track metric4IconSize = "" ;
+    @track metric5 = "";
+    @track metric5Icon = "";
+    @track metric5Measure = "";
+    @track metric5IconSize = "" ;
+    @track metric6 = "";
+    @track metric6Icon = "";
+    @track metric6Measure = "";
+    @track metric6IconSize = "" ;
     @track isLoading = true;
     @track userRecord = {};
     @track myerror;
     errormessage;
+
+
+    @api metric2 = "";
+    @api metric2Icon = "";
+    @api metric2FieldName = "";
+    @api metric2IconSize = "" ;
+
+get soqlFields(){
+  let fieldString = 'Id';
+
+  if(this.field1Name !== undefined){
+    fieldString+= ',' + this.field1Name;
+  }
+
+  if(this.metric2FieldName !== undefined && this.metric2FieldName !== ""){
+    fieldString+= ',' + this.metric2FieldName;
+  }
+
+  if(this.field3Name !== undefined){
+    fieldString+= ',' + this.field3Name;
+  }
+
+  if(this.field4Name !== undefined){
+    fieldString+= ',' + this.field4Name;
+  }
+
+  if(this.field5Name !== undefined){
+    fieldString+= ',' + this.field5Name;
+  }
+
+  if(this.field6Name !== undefined){
+    fieldString+= ',' + this.field6Name;
+  }
+
+  return fieldString; 'Id,Name,Dog__c'
+}
 
 //Field mapping based on design attribute selected
 get mileage(){
@@ -73,7 +114,7 @@ get userName() {
   }
   @wire(getUserInfo, {
     objApiName: "$object",
-    userType: "$userType",
+    fields: "$soqlFields",
     currentRecordId: "$recordId"
   })
   wiredRecords(result) {
@@ -84,6 +125,12 @@ get userName() {
       this.errormessage = result.error.body.message;
       this.myerror = result.error;
     } else if (result.data) {
+
+
+      if(this.metric2FieldName !== undefined){
+        this.metric2Value = record[this.metric2FieldName];
+      }
+
       this.userRecord.fullName = this.ref(result.data, this.userName);
       //add if statement copy 71 
       this.userRecord.MediumPhotoUrl = this.ref(result.data, this.userImage);

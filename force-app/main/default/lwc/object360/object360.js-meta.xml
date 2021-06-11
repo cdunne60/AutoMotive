@@ -25,22 +25,34 @@
            
             <property name="metric1Icon" type="String" label="Metric 1 Icon" default="" />
             <property name="metric1IconSize" type="String" label="Metric 1 Icon Size" default="" />
+
+            <!-- BASE -->
             <property name="metric2" type="String" label="Metric 2 Name" default="" />
             <property name="metric2Measure" type="String" label="Metric 2 Label Measure" default="" />
             <property name="metric2Icon" type="String" label="Metric 2 Icon" default="" />
             <property name="metric2IconSize" type="String" label="Metric 2 Icon Size" default="" />
+
+            <!-- WRAPPER -->
+            <property name="metric2" type="String" label="Metric 2 Name" default="" />
+            <property name="metric2FieldName" type="String" label="Metric 2 Label Measure" default="" />
+            <property name="metric2Icon" type="String" label="Metric 2 Icon" default="" />
+            <property name="metric2IconSize" type="String" label="Metric 2 Icon Size" default="" />
+
             <property name="metric3" type="String" label="Metric 3 Name" default="" />
             <property name="metric3Measure" type="String" label="Metric 3 Label Measure" default="" />
             <property name="metric3Icon" type="String" label="Metric 3 Icon" default="" />
             <property name="metric3IconSize" type="String" label="Metric 3 Icon Size" default="" />
+
             <property name="metric4" type="String" label="Metric 4 Name" default="" />
             <property name="metric4Measure" type="String" label="Metric 4 Label Measure" default="" />
             <property name="metric4Icon" type="String" label="Metric 4 Icon" default="" />
             <property name="metric4IconSize" type="String" label="Metric 4 Icon Size" default="" />
+
             <property name="metric5" type="String" label="Metric 5 Name" default="" />
             <property name="metric5Measure" type="String" label="Metric 5 Label Measure" default="" />
             <property name="metric5Icon" type="String" label="Metric 5 Icon" default="" />
             <property name="metric5IconSize" type="String" label="Metric 5 Icon Size" default="" />
+
             <property name="metric6" type="String" label="Metric 6 Name" default="" />
             <property name="metric6Measure" type="String" label="Metric 6 Label Measure" default="" />
             <property name="metric6Icon" type="String" label="Metric 6 Icon" default="" />

@@ -14,8 +14,8 @@
     <targetConfigs>
         <targetConfig targets="lightning__HomePage, lightning__RecordPage">
             <property name="object" type="String" label="Object API Name" default="{!objectApiName}" />
-            <property name="userType" type="String"  label="Field Name" default=""></property>
-            <property name="recordId" type="String" label="Record Id" description="Automatically binds the page's record id to the component variable, default value contextually obtains record Id from Lightning page, this can also be set explicitly" />
+            <property name="field1Name" type="String"  label="Field Name" default=""></property>
+            <property name="field2Name" type="String" label="Record Id" description="Automatically binds the page's record id to the component variable, default value contextually obtains record Id from Lightning page, this can also be set explicitly" />
             <property name="backgroundImage" type="String" label="Profile Card Background Photo" default="" />
             <property name="nameLabel" type="String" label="Label Underneath Name" default="" />
             <property name="userAvatar" type="String" label="User Profile Picture" default="" />

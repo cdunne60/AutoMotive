@@ -1,27 +1,16 @@
 public with sharing class objectInfoController {
     @AuraEnabled(cacheable=true)
-    public static sObject getUserInfo(String objApiName, String userType, Id currentRecordId){
+    public static sObject getUserInfo(String objApiName, String fields, Id currentRecordId){
       
-        String query = 'SELECT Id ';
+        String query = 'SELECT ';
+        query += fields;
+        query += ' FROM ' + objApiName + ' WHERE IsDeleted = false';
 
-        if(userType == 'Creator'){
-            query += ', CreatedBy.Name,CreatedById CreatedBy.SmallPhotoUrl, CreatedBy.MediumPhotoUrl';
-            
-        }
-        else if(userType == 'Owner'){
-            query += ', typeof Owner when user then Id, Name, SmallPhotoUrl, FullPhotoUrl, MediumPhotoUrl when Group then Id, Name, Type end';
-           
-        }
-        //Custom Field
-        else {
-            String fieldApiName = userType.left(userType.length()-1);
-            query += ' ,' + fieldApiName + 'c';
-            query += ',' + userType +'.Name,' + + userType +  '.MediumPhotoUrl ';
-            
+        if(currentRecordId != '' && currentRecordId != null){
+            query += ' AND Id =: currentRecordId';
         }
 
-        query += ' FROM ' + objApiName + ' WHERE IsDeleted = false AND  Id =: currentRecordId';
-        query +=' WITH SECURITY_ENFORCED';
+        query +=' LIMIT 1 WITH SECURITY_ENFORCED';
 
         try {
             return Database.query(query);
