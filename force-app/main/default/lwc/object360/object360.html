@@ -1,0 +1,187 @@
+<template>
+	<div class="slds-card card">
+		<div class="fill">
+			<img src={backgroundImage} class="header-image">
+
+
+		</div>
+		<div class="slds-media slds-m-left_x-large">
+			<div class="slds-media_figure">
+				<div class="customer-image-container ">
+					<img class="customer-avatar" src={userAvatar}  />
+
+					<div class="csat-indicator slds-p-right_medium">
+
+					</div>
+					<div class="csat-indicator slds-p-right_medium">
+						<lightning-icon icon-name="utility:emoji" class="csat-icon csat-icon-positive" size="small">
+						</lightning-icon>
+					</div>
+				</div>
+			</div>
+			<div class="slds-media_body slds-m-left_medium slds-m-top_medium">
+				<div class="slds-text-heading_small title-weight">{name}</div>
+
+				<div class="slds-text-color_weak">{nameLabel}</div>
+
+			</div>
+		</div>
+
+		<!-- METRICS -->
+		<div class=" slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+			<lightning-layout multiple-rows>
+
+				<lightning-layout-item size="4" flexibility="auto,grow,shrink">
+					<div class=" slds-p-around_medium slds-text-align_center">
+						<div class=" slds-p-around_medium slds-text-align_center">
+							<div
+								class="slds-media slds-media_center slds-media_large slds-p-left_medium slds-p-right_large">
+								<div class="slds-media_figure slds-m-right_x-small">
+									<lightning-icon icon-name={metric1Icon} 
+										size={metric1IconSize}>
+									</lightning-icon>
+								</div>
+								<div class="slds-media_body">
+									<div class=" title-weight">
+										{metric1}
+									</div>
+									<div class="slds-text-color_weak slds-text-align_left">
+										{userRecord.color}
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="4" flexibility="auto,grow,shrink">
+					<div class="slds-p-around_medium slds-text-align_center">
+						<div class=" slds-p-around_medium slds-text-align_center">
+							<div
+								class="slds-media slds-media_center slds-media_large slds-p-left_medium slds-p-right_large">
+								<div class="slds-media_figure slds-m-right_x-small">
+									<lightning-icon icon-name={metric2Icon} 
+									size={metric2IconSize}> 
+									</lightning-icon>
+								</div>
+								<div class="slds-media_body">
+									<div class=" title-weight">
+										{metric2}
+									</div>
+									<div class="slds-text-color_weak slds-text-align_left">
+										{metric2Measure}
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="4" flexibility="auto,grow,shrink">
+					<div class=" slds-p-around_medium slds-text-align_center">
+						<div class=" slds-p-around_medium slds-text-align_center">
+							<div
+								class="slds-media slds-media_center slds-media_large slds-p-left_medium slds-p-right_large">
+								<div class="slds-media_figure slds-m-right_x-small">
+									<lightning-icon icon-name={metric3Icon} 
+									size={metric3IconSize}>
+									</lightning-icon>
+								</div>
+								<div class="slds-media_body">
+									<div class=" title-weight">
+										{metric3}
+									</div>
+									<div class="slds-text-color_weak slds-text-align_left">
+										{metric3Measure}
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="4" flexibility="auto,grow,shrink">
+					<div class=" slds-p-around_medium slds-text-align_center">
+						<div class=" slds-p-around_medium slds-text-align_center">
+							<div
+							class="slds-media slds-media_center slds-media_large slds-p-left_medium slds-p-right_large">
+							<div class="slds-media_figure slds-m-right_x-small">
+								<lightning-icon icon-name={metric4Icon} 
+								size={metric4IconSize}>
+								</lightning-icon>
+							</div>
+							<div class="slds-media_body">
+								<div class=" title-weight">
+									{metric4}
+								</div>
+								<div class="slds-text-color_weak slds-text-align_left">
+									{metric4Measure}
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="4" flexibility="auto,grow,shrink">
+					<div class=" slds-p-around_medium slds-text-align_center">
+						<div class=" slds-p-around_medium slds-text-align_center">
+							<div
+								class="slds-media slds-media_center slds-media_large slds-p-left_medium slds-p-right_large">
+								<div class="slds-media_figure slds-m-right_x-small">
+									<lightning-icon icon-name={metric5Icon} 
+									size={metric5IconSize}>
+									</lightning-icon>
+								</div>
+								<div class="slds-media_body">
+									<div class=" title-weight">
+										{metric5}
+									</div>
+									<div class="slds-text-color_weak slds-text-align_left">
+										{metric5Measure}
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</lightning-layout-item>
+				<lightning-layout-item size="4" flexibility="auto,grow,shrink">
+					<div class=" slds-p-around_medium slds-text-align_center">
+						<div class=" slds-p-around_medium slds-text-align_center">
+							<div
+								class="slds-media slds-media_center slds-media_large slds-p-left_medium slds-p-right_large">
+								<div class="slds-media_figure slds-m-right_x-small">
+									<lightning-icon icon-name={metric6Icon} 
+									size={metric6IconSize}>
+									</lightning-icon>
+								</div>
+								<div class="slds-media_body">
+									<div class=" title-weight">
+										{metric6}
+									</div>
+									<div class="slds-text-color_weak slds-text-align_left">
+										{metric6Measure}
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</lightning-layout-item>
+			</lightning-layout>
+		</div>
+		<div>
+			<c-auto-motive-progress-indicator ></c-auto-motive-progress-indicator>
+
+
+		</div>
+		
+
+
+	</div>
+
+
+	
+
+</template>
