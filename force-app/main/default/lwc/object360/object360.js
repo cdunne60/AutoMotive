@@ -9,6 +9,7 @@ export default class Object360 extends LightningElement {
   @api name="";
   @api nameLabel="";
   @api userType = "";
+  
   @api metric1 = "";
   @api metric1Icon = "";
   @api metric1Measure = "";
