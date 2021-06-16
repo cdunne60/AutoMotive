@@ -1,8 +1,20 @@
 import { LightningElement,api,track,wire } from 'lwc';
 import getUserInfo from "@salesforce/apex/objectInfoController.getUserInfo";
+//import myResource from '@salesforce/resourceUrl/resourceReference';
+
 export default class Object360Wrapper extends LightningElement {
+
+  @api imageFieldName;  //Builder = Owner.SmallPhotoUrl
+  @api staticResPicName; //Builder = test.png
+  @track imgFieldUrl;
+
+
     @api object = "";
     @api recordId = "";
+    @api showProgress;
+    @api label="";
+
+    @api qualifiedFieldName="";
     
     @track metric1Value;
     @track metric2Value;
@@ -10,11 +22,15 @@ export default class Object360Wrapper extends LightningElement {
     @track metric4Value;
     @track metric5Value;
     @track metric6Value;
+    @track avatarValue;
+    @track nameValue;
+    @track nameLabel2;
   
     @api backgroundImage = "";
     @api nameLabel = "";
     @api userAvatar ="";
     @api userType = "";
+    @api name = "";
   
     
     @api metric1 ;
@@ -52,11 +68,35 @@ export default class Object360Wrapper extends LightningElement {
     @api myerror;
     errormessage;
 
-
-
-
+// get imgUrl(){
+//   if (this.imgFieldUrl != undefined){
+//     return imgFieldUrl;
+//   }
+//   if(this.staticResPicName != undefined){
+//     return  myResource + '/' + this.staticResPicName;
+//   }
+//   return;
+// }
+    
 get soqlFields(){
   let fieldString = 'Id';
+  
+  if(this.imageFieldName !== undefined && this.imageFieldName !== ""){
+    fieldString+= ' ,' + this.imageFieldName;
+  }
+
+  
+  if(this.nameLabel !== undefined && this.nameLabel !== ""){
+    fieldString+= ' ,' + this.nameLabel;
+  }
+
+  if(this.name !== undefined && this.name !== ""){
+    fieldString+= ' ,' + this.name;
+  }
+
+  if(this.userAvatar !== undefined && this.userAvatar !== ""){
+    fieldString+= ' ,' + this.userAvatar;
+  }
 
   if(this.metric1FieldName !== undefined && this.metric1FieldName !== ""){
     fieldString+= ' ,' + this.metric1FieldName;
@@ -104,12 +144,21 @@ get soqlFields(){
       this.myerror = result.error;
     } else if (result.data) {
       console.log(result.data);
+      
+      if(this.nameLabel !== undefined ){
+        this.nameLabel2 = result.data[this.nameLabel];
+      }
+      if(this.userAvatar !== undefined ){
+        this.avatarValue = result.data[this.userAvatar];
+      }
+      if(this.name !== undefined ){
+        this.nameValue = result.data[this.name];
+      }
 
       if(this.metric1FieldName !== undefined ){
         this.metric1Value = result.data[this.metric1FieldName];
       }
-      console.log(this.metric1Value);
-
+ 
       if(this.metric2FieldName !== undefined ){
         this.metric2Value = result.data[this.metric2FieldName];
       }
@@ -127,8 +176,28 @@ get soqlFields(){
       if(this.metric6FieldName !== undefined && this.metric6FieldName !== ""){
         this.metric6Value = result.data[this.metric6FieldName];
       }
+
+      if (this.imageFieldName !== undefined){
+        console.log('test:'+this.imageFieldName);
+        this.imgFieldUrl = this.ref(result.data, this.imageFieldName);
+               // if(this.imageFieldName.includes('.')){
+        //   this.imgUrl = this.ref(result.data, this.imageFieldName);
+        //   console.log('chris:'+ this.imgUrl);
+        // }else{
+        //   console.log(result.data);
+        //   this.imgUrl= data[this.imageFieldName];
+        // }
+      
+      
+      }
     
     }
-    console.log("recordId:"+ this.recordId);
+    console.log("recordId:"+ this.imgFieldUrl);
+  }
+   //splits object from object name to name that we can reference
+   ref(obj, str) {
+    return str.split(".").reduce(function (o, x) {
+      return o[x];
+    }, obj);
   }
 }

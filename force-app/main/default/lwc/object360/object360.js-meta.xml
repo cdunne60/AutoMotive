@@ -13,6 +13,9 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__HomePage, lightning__RecordPage">
+            <property name="showProgress" type="Boolean" default="true"  label="Include Path"></property>
+            <property name="label" type="String" label="Label" default="" required="true"/>
+            <property name="qualifiedFieldName" type="String" label="Qualified Field Name" description="Qualified field name of the picklist field. Eg: Account.Rating" default="" required="true"/>
             <property name="object" type="String" label="Object API Name" default="{!objectApiName}" />
             <property name="recordId" type="String" label="Record Id" description="Automatically binds the page's record id to the component variable, default value contextually obtains record Id from Lightning page, this can also be set explicitly" />
             <property name="userType" type="String"  label="Field Name" default=""></property>

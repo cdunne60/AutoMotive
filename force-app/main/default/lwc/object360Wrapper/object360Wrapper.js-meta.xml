@@ -13,12 +13,19 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__HomePage, lightning__RecordPage">
+            <property name="staticResPicName" type="String" label="Static Resource Picture Upload" default="" />
+            <property name="imageFieldName" type="String" label="Picture from field Name" default="" />
+            <property name="label" type="String" label="Label" default="" required="true"/>
+            <property name="showProgress" type="Boolean" default="true"  label="Include Path"></property>
             <property name="object" type="String" label="Object API Name" default="{!objectApiName}" />
             <property name="recordId" type="String" label="Record Id"  default="{!recordId}"/>
             
+            <property name="qualifiedFieldName" type="String" label="Qualified Field Name" description="Qualified field name of the picklist field. Eg: Account.Rating" default="" required="true"/>
+            
             <property name="backgroundImage" type="String" label="Profile Card Background Photo" default="" />
-            <property name="nameLabel" type="String" label="Label Underneath Name" default="" />
+            <property name="nameLabel" type="String" label="Label Underneath Name" default="" description="This can be more details around the item or it can be an address placeholder "/>
             <property name="userAvatar" type="String" label="User Profile Picture" default="" />
+            <property name="name" type="String" label="Item Name" default="" />
             
             <property name="metric1" type="String" label="Metric 1 Name" default="" />
             <property name="metric1FieldName" type="String" label="Metric 1 Label Measure" default="" />
