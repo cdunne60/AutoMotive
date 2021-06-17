@@ -1,17 +1,21 @@
-import { LightningElement, api, wire, track } from "lwc";
+import { LightningElement, api} from "lwc";
 
 export default class Object360 extends LightningElement {
   @api flexipageRegionWidth;
   @api showProgress;
+  @api qualifiedFieldName = "";
+  
   @api recordId = "";
   @api object = "";
-  @api qualifiedFieldName = "";
-  @api label = "";
+  
+
   @api backgroundImage = "";
+  @api backgroundColor;
+
   @api userAvatar = "";
   @api name = "";
   @api nameLabel = "";
-  @api userType = "";
+
 
   @api metric1 = "";
   @api metric1Icon = "";
@@ -42,21 +46,34 @@ export default class Object360 extends LightningElement {
   @api metric6Icon = "";
   @api metric6Measure = "";
   @api metric6IconSize = "";
+  
+
+
+  @api customColor;
+  renderedCallback() {
+
+      this.template
+          .querySelector(".fill")
+          .style.setProperty("--my-color",this.customColor);
+          
+  }
+
+
 
   get columnClass() {
     switch (this.numColumns) {
       case 1:
         return "slds-col slds-size_1-of-1 slds-p-bottom_medium";
       case 2:
-        return "slds-col slds-size_1-of-2";
+        return "slds-col slds-size_1-of-2 slds-p-bottom_medium";
       case 3:
-        return "slds-col slds-size_1-of-1 slds-p-bottom_medium";
+        return "slds-col slds-size_1-of-3 slds-p-bottom_medium";
       case 4:
-        return "slds-col slds-size_1-of-2";
+        return "slds-col slds-size_1-of-1  slds-p-bottom_medium";
       case 5:
-        return "slds-col slds-size_1-of-1 slds-p-bottom_medium";
+        return "slds-col slds-size_1-of-2 slds-p-bottom_medium";
       case 6:
-        return "slds-col slds-size_1-of-2";
+        return "slds-col slds-size_1-of-3 slds-p-bottom_medium";
     }
   }
 

@@ -13,49 +13,50 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__HomePage, lightning__RecordPage">
-            <property name="showProgress" type="Boolean" default="true"  label="Include Path"></property>
-            <property name="label" type="String" label="Label" default="" required="true"/>
-            <property name="qualifiedFieldName" type="String" label="Qualified Field Name" description="Qualified field name of the picklist field. Eg: Account.Rating" default="" required="true"/>
-            <property name="object" type="String" label="Object API Name" default="{!objectApiName}" />
+            <property name="showProgress" type="Boolean" default="true" label="Include Path"></property>
+            <property name="qualifiedFieldName" type="String" label="Qualified Field Name" description="Qualified field name of the picklist field. Eg: Account.Rating" default="" />
+            
+            <property name="object" type="String" label="Object API Name" default="" />
             <property name="recordId" type="String" label="Record Id" description="Automatically binds the page's record id to the component variable, default value contextually obtains record Id from Lightning page, this can also be set explicitly" />
-            <property name="userType" type="String"  label="Field Name" default=""></property>
+            
             <property name="backgroundImage" type="String" label="Profile Card Background Photo" default="" />
-            <property name="name" type="String" label="Name" default="" />
-            <property name="nameLabel" type="String" label="User Address Field" default="" />
+            <property name="customColor" type="String" label="Profile Card Background Colour" default="blue" />
+            <property name="name" type="String" label="Name" default="Enter Name Here" />
+            <property name="nameLabel" type="String" label="User Address Field" default="Enter Address or Additional Detail" />
             <property name="userAvatar" type="String" label="User Profile Picture" default="" />
-           
-           
-            <property name="metric1" type="String" label="Metric 1 Name" default="" />
-            <property name="metric1Icon" type="String" label="Metric 1 Icon" default="" />
-            <property name="metric1IconSize" type="String" label="Metric 1 Icon Size" default="" />
-            <property name="metric1Measure" type="String" label="Metric 1 Label Measure" default="" />
 
-           
-            <property name="metric2" type="String" label="Metric 2 Name" default="" />
-            <property name="metric2Measure" type="String" label="Metric 2 Label Measure" default="" />
-            <property name="metric2Icon" type="String" label="Metric 2 Icon" default="" />
+
+            <property name="metric1" type="String" label="Metric 1 Name" default="Metric  1" />
+            <property name="metric1Icon" type="String" label="Metric 1 Icon" default="standard:call" />
+            <property name="metric1IconSize" type="String" label="Metric 1 Icon Size" default="" />
+            <property name="metric1Measure" type="String" label="Metric 1 Label Measure" default="Metric 1 Measure" />
+
+
+            <property name="metric2" type="String" label="Metric 2 Name" default="Metric 2  Name" />
+            <property name="metric2Measure" type="String" label="Metric 2 Label Measure" default="Metric 2 Measure" />
+            <property name="metric2Icon" type="String" label="Metric 2 Icon" default="standard:call" />
             <property name="metric2IconSize" type="String" label="Metric 2 Icon Size" default="" />
 
-            <property name="metric3" type="String" label="Metric 3 Name" default="" />
-            <property name="metric3Measure" type="String" label="Metric 3 Label Measure" default="" />
-            <property name="metric3Icon" type="String" label="Metric 3 Icon" default="" />
+            <property name="metric3" type="String" label="Metric 3 Name" default="Metric 3 Name" />
+            <property name="metric3Measure" type="String" label="Metric 3 Label Measure" default="Metric 3 Measure" />
+            <property name="metric3Icon" type="String" label="Metric 3 Icon" default="standard:call" />
             <property name="metric3IconSize" type="String" label="Metric 3 Icon Size" default="" />
 
-            <property name="metric4" type="String" label="Metric 4 Name" default="" />
-            <property name="metric4Measure" type="String" label="Metric 4 Label Measure" default="" />
-            <property name="metric4Icon" type="String" label="Metric 4 Icon" default="" />
+            <property name="metric4" type="String" label="Metric 4 Name" default="Metric 4 Name" />
+            <property name="metric4Measure" type="String" label="Metric 4 Label Measure" default="Metric 4 Measure" />
+            <property name="metric4Icon" type="String" label="Metric 4 Icon" default="standard:call" />
             <property name="metric4IconSize" type="String" label="Metric 4 Icon Size" default="" />
 
-            <property name="metric5" type="String" label="Metric 5 Name" default="" />
-            <property name="metric5Measure" type="String" label="Metric 5 Label Measure" default="" />
-            <property name="metric5Icon" type="String" label="Metric 5 Icon" default="" />
+            <property name="metric5" type="String" label="Metric 5 Name" default="Metric 5" />
+            <property name="metric5Measure" type="String" label="Metric 5 Label Measure" default="Metric 5 Measure" />
+            <property name="metric5Icon" type="String" label="Metric 5 Icon" default="standard:call" />
             <property name="metric5IconSize" type="String" label="Metric 5 Icon Size" default="" />
 
-            <property name="metric6" type="String" label="Metric 6 Name" default="" />
-            <property name="metric6Measure" type="String" label="Metric 6 Label Measure" default="" />
-            <property name="metric6Icon" type="String" label="Metric 6 Icon" default="" />
+            <property name="metric6" type="String" label="Metric 6 Name" default="Metric 6" />
+            <property name="metric6Measure" type="String" label="Metric 6 Label Measure" default="Metric 6 Measure" />
+            <property name="metric6Icon" type="String" label="Metric 6 Icon" default="standard:call" />
             <property name="metric6IconSize" type="String" label="Metric 6 Icon Size" default="" />
-   
+
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>

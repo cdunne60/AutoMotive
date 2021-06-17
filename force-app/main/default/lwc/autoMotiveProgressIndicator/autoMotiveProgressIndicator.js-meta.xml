@@ -9,8 +9,7 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
-            <property name="label" type="String" label="Label" default="" required="true"/>
-            <property name="qualifiedFieldName" type="String" label="Qualified Field Name" description="Qualified field name of the picklist field. Eg: Account.Rating" default="" required="true"/>
+            <property name="qualifiedFieldName" type="String" label="Qualified Field Name" description="Qualified field name of the picklist field. Eg: Account.Rating" default="" required="true" />
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
